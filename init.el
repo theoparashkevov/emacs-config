@@ -2,14 +2,18 @@
 (load-theme 'modus-vivendi )
 (setq modus-themes-mode-line 'accented)
 
+(add-to-list 'load-path "~/.config/emacs/static/")
+
 (require 'org)
 (org-babel-load-file
  (expand-file-name "init.org" "/home/tcv/.config/emacs/org/")
- )
-
+)
 
 (setq org-support-shift-select t)
 (setq tool-bar-mode nil)
+
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
 
 
 (custom-set-variables
