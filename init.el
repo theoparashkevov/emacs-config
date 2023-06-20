@@ -6,7 +6,7 @@
 
 (require 'org)
 (org-babel-load-file
- (expand-file-name "init.org" "/home/tcv/.config/emacs/org/")
+ (expand-file-name "init.org" "~/.config/emacs/org/")
 )
 
 (setq org-support-shift-select t)
