@@ -290,8 +290,8 @@ This is an example of using [[https://github.com/abo-abo/hydra][Hydra]] to desig
     ("k" text-scale-decrease "out")
     ("f" nil "finished" :exit t))
 
-  (rune/leader-keys
-    "ts" '(hydra-text-scale/body :which-key "scale text"))
+  ;(rune/leader-keys
+  ;  "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 #+end_src
 
