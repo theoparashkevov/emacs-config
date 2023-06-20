@@ -1,0 +1,10 @@
+* Python
+#+begin_src python
+pip install rufus jedi
+
+#+end_src
+* System
+#+begin_src bash
+pacman -Sy rufus
+#+end_src
+
