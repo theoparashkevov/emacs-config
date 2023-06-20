@@ -188,6 +188,15 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
   (use-package all-the-icons
     :if (display-graphic-p))
 
+  (use-package all-the-icons-ivy-rich
+    :ensure t
+    :init (all-the-icons-ivy-rich-mode 1))
+
+  (use-package ivy-rich
+    :ensure t
+    :init (ivy-rich-mode 1))
+
+
   (use-package doom-modeline
     :init (doom-modeline-mode 1)
     :custom ((doom-modeline-height 15)))
