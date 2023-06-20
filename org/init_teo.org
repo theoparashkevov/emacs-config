@@ -1,0 +1,97 @@
+* ELPA/MELPA Packages
+** Packages to be installed
+  - python-mode
+  - company
+  - company-jedi
+  - company-shell
+  - company-box
+  - jedi
+  - lsp-jedi
+  - yasnippet
+  - yasnippet-snippets
+  - py-snippets
+
+** Source code
+#+begin_src emacs-lisp :tangle yes
+  (require 'package)
+  ;; Added by Package.el.  This must come before configurations of
+  ;; installed packages.  Don't delete this line.  If you don't want it,
+  ;; just comment it out by adding a semicolon to the start of the line.
+  ;; You may delete these explanatory comments.
+  (package-initialize)
+
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+#+end_src
+
+* YASnippet
+** Documentation
+Home: https://joaotavora.github.io/yasnippet/index.html
+Writing Snippets: https://joaotavora.github.io/yasnippet/snippet-development.html
+
+** Source Code
+#+begin_src emacs-lisp :tangle yes
+
+  (require 'yasnippet)
+  (yas-global-mode 1)
+  
+#+end_src
+
+* Py-Snippets
+
+* YSnippets-Snippets
+** Documentation
+
+
+* After Init Hooks
+** Documentation
+** Source Code
+#+begin_src emacs-lisp :tangle yes
+
+  (add-hook 'after-init-hook #'global-company-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+
+#+end_src
+
+
+* Company
+** Documentation
+** Source Code
+#+begin_src emacs-lisp :tangle yes
+  (require 'company)
+
+  (setq company-backends '(
+				company-jedi company-box company-bbdb company-semantic company-cmake company-capf company-clang company-files
+		      (company-dabbrev-code company-gtags company-etags company-keywords)
+		      company-oddmuse company-dabbrev
+				)
+	    )
+#+end_src
+
+* Python Mode
+** Documentation
+** Source Code
+#+begin_src emacs-lisp :tangle yes
+  ;(setq py-auto-complete-p nil)
+  (setq python-indent-guess-indent-offset nil)
+  (setq python-indent-offset 4)
+  (setq python-shell-completion-native-disabled-interpreters '("pypy" "ipython" "python3.11"))
+  (setq python-shell-interpreter "python3.11")
+#+end_src
+
+* JEDI
+** Documentation
+** Source Code
+#+begin_src emacs-lisp :tangle yes
+
+  (setq jedi:environment-root "/home/tcv/venvs/python311")
+  (setq jedi:environment-virtualenv "python3.11 -m venv")
+  (setq jedi:complete-on-dot 't)
+  (setq jedi:environment-root "/home/tcv/venvs/python311")
+  (setq jedi:environment-virtualenv '("python3.11 -m venv"))
+  (setq jedi:get-in-function-call-delay 100)
+
+  ; (setq company-quick-access-hint-function t)
+#+end_src
