@@ -1,6 +1,6 @@
 
-(load-theme 'modus-vivendi )
-(setq modus-themes-mode-line 'accented)
+;; (load-theme 'modus-vivendi )
+;; (setq modus-themes-mode-line 'accented)
 
 (add-to-list 'load-path "~/.config/emacs/static/")
 
