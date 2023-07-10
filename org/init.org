@@ -566,8 +566,11 @@ The =which-key= integration adds helpful descriptions of the various keys so you
 #+begin_src emacs-lisp
 
   (defun efs/lsp-mode-setup ()
-    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-    (lsp-headerline-breadcrumb-mode))
+    ;; (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    ;; (lsp-headerline-breadcrumb-mode)
+    (setq lsp-headerline-breadcrumb-enable nil)
+
+    )
 
   (use-package lsp-mode
     :commands (lsp lsp-deferred)
@@ -768,8 +771,8 @@ We also use [[https://github.com/sebastiencs/company-box][company-box]] to furth
     ("C-c p" . projectile-command-map)
     :init
     ;; NOTE: Set this to the folder where you keep your Git repos!
-    (when (file-directory-p "~/Projects/Code")
-      (setq projectile-project-search-path '("~/Projects/Code")))
+    (when (file-directory-p "~/projects")
+      (setq projectile-project-search-path '("~/projects")))
     (setq projectile-switch-project-action #'projectile-dired))
 
   (use-package counsel-projectile
