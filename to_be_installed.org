@@ -1,7 +1,8 @@
 * Python
 #+begin_src python
-pip install rufus jedi
-
+  pip install rufus jedi
+  pip install "python-lsp-server[all]"
+  pip install epc
 #+end_src
 * System
 #+begin_src bash
