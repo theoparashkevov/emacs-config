@@ -2,7 +2,7 @@
 ;;       in Emacs and init.el will be generated automatically!
 
 ;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 180)
+(defvar efs/default-font-size 150)
 (defvar efs/default-variable-font-size 180)
 
 ;; Make frame transparency overridable
@@ -12,7 +12,7 @@
 (require 'package)
 
 (setq package-archives '(
-                          ;; ("melpa" . "https://melpa.org/packages/")
+                          ("melpa" . "https://melpa.org/packages/")
                           ("melpa-stable" . "http://stable.melpa.org/packages/")
                           ("org" . "https://orgmode.org/elpa/")
                           ("elpa" . "https://elpa.gnu.org/packages/")
@@ -111,6 +111,15 @@
 (use-package all-the-icons
   :if (display-graphic-p))
 
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :init (all-the-icons-ivy-rich-mode 1))
+
+(use-package ivy-rich
+  :ensure t
+  :init (ivy-rich-mode 1))
+
+
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
@@ -170,8 +179,8 @@
   ("k" text-scale-decrease "out")
   ("f" nil "finished" :exit t))
 
-(rune/leader-keys
-  "ts" '(hydra-text-scale/body :which-key "scale text"))
+;(rune/leader-keys
+;  "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 (defun efs/org-font-setup ()
   ;; Replace list hyphen with dot
@@ -387,23 +396,24 @@
 
 (use-package lsp-ivy)
 
-(use-package dap-mode
+;; (setq debug-on-error t)
+;;(use-package dap-mode
   ;; Uncomment the config below if you want all UI panes to be hidden by default!
   ;; :custom
   ;; (lsp-enable-dap-auto-configure nil)
   ;; :config
   ;; (dap-ui-mode 1)
 
-  :config
+  ;;:config
   ;; Set up Node debugging
-  (require 'dap-node)
-  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+  ;;(require 'dap-node)
+  ;;(dap-node-setup) ;; Automatically installs Node debug adapter if needed
 
   ;; Bind `C-c l d` to `dap-hydra` for easy access
-  (general-define-key
-    :keymaps 'lsp-mode-map
-    :prefix lsp-keymap-prefix
-    "d" '(dap-hydra t :wk "debugger")))
+  ;;(general-define-key
+  ;;  :keymaps 'lsp-mode-map
+  ;;  :prefix lsp-keymap-prefix
+  ;;  "d" '(dap-hydra t :wk "debugger")))
 
 (use-package typescript-mode
   :mode "\\.ts\\'"
