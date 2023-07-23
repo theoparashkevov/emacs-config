@@ -641,8 +641,8 @@ Try these commands with =M-x=:
 
     :config
     ;; Set up Node debugging
-    (require 'dap-node)
-    (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+  ;;  (require 'dap-node)
+  ;;  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
 
     ;; Bind `C-c l d` to `dap-hydra` for easy access
     (general-define-key
@@ -736,9 +736,9 @@ We also use [[https://github.com/sebastiencs/company-box][company-box]] to furth
     :custom
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0)
-
+    ;; company-jedi
     (company-backends '(
-                                company-jedi company-box company-bbdb company-semantic company-cmake company-capf company-clang company-files
+                                company-box company-bbdb company-semantic company-cmake company-capf company-clang company-files
                       (company-dabbrev-code company-gtags company-etags company-keywords)
                       company-oddmuse company-dabbrev
                                 ))
@@ -749,8 +749,13 @@ We also use [[https://github.com/sebastiencs/company-box][company-box]] to furth
   
   (setq company-box-icons-alist 'company-box-icons-all-the-icons)
 
-  (setq lsp-ruff-lsp-server-command "/home/tcv/venvs/python311/bin/ruff-lsp")
-  (setq lsp-ruff-server-command "/home/tcv/venvs/python311/bin/ruff")
+
+  (setq lsp-ruff-lsp-server-command "/home/teo/venvs/python3/bin/ruff-lsp")
+  (setq lsp-ruff-server-command "/home/teo/venvs/python3/bin/ruff")
+
+;; (setq 'jedi:server-command
+;; '("/home/teo/venvs/python3/bin/python"))
+
 
 #+end_src
 
@@ -1049,6 +1054,21 @@ Dired is a built-in file manager for Emacs that does some pretty amazing things!
 
 #+end_src
 
+* YASnippet
+#+begin_src emacs-lisp
+(use-package yasnippet
+:config 
+(yas-global-mode 1)
+)
+
+(use-package yasnippet-snippets)
+
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "M-<tab>") #'yas-insert-snippet)
+
+
+#+end_src 
 * Applications
 
 ** Some App
@@ -1069,3 +1089,19 @@ This is an example of configuring another non-Emacs application using org-mode. 
   value=<<the-value()>>
 
 #+end_src
+* ORG-ROAM
+#+begin_src emacs-lisp
+
+  (use-package org-roam)
+  (setq org-roam-directory (file-truename "~/org-roam"))
+  (org-roam-db-autosync-mode)
+
+
+  
+  (use-package org-roam-ui)
+
+  ;; Fixes issue with not executing properly C-x C-c
+  (defun org-clocking-buffer (&rest _))
+
+#+end_src
+
