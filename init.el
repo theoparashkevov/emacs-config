@@ -2,6 +2,8 @@
 ;; (load-theme 'modus-vivendi )
 ;; (setq modus-themes-mode-line 'accented)
 
+(setq default-directory "/home/teo/")
+
 (add-to-list 'load-path "/home/teo/.config/emacs/static/")
 
 (require 'org)
