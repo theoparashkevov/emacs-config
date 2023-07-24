@@ -24,7 +24,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-roam-ui org-roam yasnippet yasnippet-snippets which-key vterm visual-fill-column use-package typescript-mode rainbow-delimiters pyvenv python-mode py-snippets org-bullets lsp-ui lsp-jedi lsp-ivy lsp-docker jedi ivy-rich helpful general forge flycheck evil-nerd-commenter evil eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-shell company-jedi company-box command-log-mode annalist all-the-icons-dired)))
+   '(sqlite3 org-roam-ui org-roam yasnippet yasnippet-snippets which-key vterm visual-fill-column use-package typescript-mode rainbow-delimiters pyvenv python-mode py-snippets org-bullets lsp-ui lsp-jedi lsp-ivy lsp-docker jedi ivy-rich helpful general forge flycheck evil-nerd-commenter evil eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-open dired-hide-dotfiles dap-mode counsel-projectile company-shell company-jedi company-box command-log-mode annalist all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
