@@ -39,6 +39,7 @@ MELPA the first time Emacs starts.
 | Feature              | Install                                                        |
 |----------------------|----------------------------------------------------------------|
 | Python LSP           | `pyright` (`npm install -g pyright` or `pip install pyright`)  |
+| Python linting (optional) | `ruff` on `PATH` (`pip install ruff`). lsp-mode runs it next to Pyright automatically |
 | JavaScript/TypeScript LSP | `npm install -g typescript-language-server typescript`    |
 | C/C++ LSP            | `clangd` (from your distro's LLVM/clang package)               |
 | Aider                | `aider` on `PATH` (`python -m pip install aider-install && aider-install`) and `OPENAI_API_KEY` exported in your shell |
