@@ -69,6 +69,14 @@
 (add-hook 'dired-mode-hook #'my-tramp-auto-bookmark)
 
 ;; ----------------------------
+;; TERMINAL
+;; ----------------------------
+(use-package multi-term
+  :commands (multi-term multi-term-next multi-term-prev)
+  :config
+  (setq multi-term-program "/bin/bash"))
+
+;; ----------------------------
 ;; DASHBOARD (HOME PAGE)
 ;; ----------------------------
 (use-package all-the-icons
@@ -96,6 +104,28 @@
   (dashboard-setup-startup-hook))
 
 (global-set-key (kbd "C-c h") #'dashboard-open)
+
+;; ----------------------------
+;; ORG / ORG-ROAM
+;; ----------------------------
+(use-package org
+  :ensure nil
+  :defer t
+  :config
+  (setq org-support-shift-select t))
+
+(use-package org-roam
+  :init
+  (setq org-roam-directory (file-truename "~/org-roam"))
+  :bind (("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n l" . org-roam-buffer-toggle))
+  :config
+  (make-directory org-roam-directory t)
+  (org-roam-db-autosync-mode 1))
+
+(use-package org-roam-ui
+  :after org-roam)
 
 ;; ----------------------------
 ;; AIDER / AUTOMATION
@@ -220,6 +250,22 @@
 (use-package which-key
   :config
   (which-key-mode 1))
+
+;; ----------------------------
+;; SNIPPETS
+;; ----------------------------
+(use-package yasnippet
+  :config
+  (let ((extra (expand-file-name "~/projects/yasnippet-snippets/snippets")))
+    (when (file-directory-p extra)
+      (add-to-list 'yas-snippet-dirs extra)))
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "M-<tab>") #'yas-insert-snippet)
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 ;; ----------------------------
 ;; THEME & COSMETICS

@@ -7,9 +7,14 @@ MELPA the first time Emacs starts.
 ## Features
 
 - **Dashboard** start page with recent files, projects, bookmarks and agenda.
+- **Notes** with Org-roam in `~/org-roam` (created on first use), with the
+  database kept in sync automatically and `M-x org-roam-ui-open` for a graph
+  view in the browser. In Org buffers, Shift+arrow keys select text.
 - **Projects** via Projectile, searching `~/projects`.
 - **Remote editing** over TRAMP (SSH by default). Each SSH host you open in
   Dired is bookmarked automatically as `ssh:<host>`.
+- **Terminals** via multi-term: `M-x multi-term` opens a new Bash terminal
+  buffer each time.
 - **Git** via Magit.
 - **IDE features** via `lsp-mode` + `lsp-ui` (peek, sideline, docs at point)
   for Python, JavaScript, TypeScript, C and C++.
@@ -17,6 +22,9 @@ MELPA the first time Emacs starts.
   picked up automatically.
 - **Completion and checking**: Company everywhere, Flycheck everywhere,
   `which-key` popups for key prefixes.
+- **Snippets** via YASnippet with the `yasnippet-snippets` collection, plus
+  your own snippets from `~/projects/yasnippet-snippets/snippets` if that
+  folder exists. `TAB` is left alone; use `M-<tab>` to insert a snippet.
 - **AI pair programming** via [aidermacs](https://github.com/MatthewZMD/aidermacs)
   (Aider, architect mode, default model `gpt-5-mini`, auto-commits on).
 - **Look**: `leuven-dark` theme, no tool bar, recent files and minibuffer
@@ -31,6 +39,7 @@ MELPA the first time Emacs starts.
 | Feature              | Install                                                        |
 |----------------------|----------------------------------------------------------------|
 | Python LSP           | `pyright` (`npm install -g pyright` or `pip install pyright`)  |
+| Python linting (optional) | `ruff` on `PATH` (`pip install ruff`). lsp-mode runs it next to Pyright automatically |
 | JavaScript/TypeScript LSP | `npm install -g typescript-language-server typescript`    |
 | C/C++ LSP            | `clangd` (from your distro's LLVM/clang package)               |
 | Aider                | `aider` on `PATH` (`python -m pip install aider-install && aider-install`) and `OPENAI_API_KEY` exported in your shell |
@@ -56,11 +65,15 @@ The first start takes a minute while packages are downloaded and compiled.
 | Key        | Command                                      |
 |------------|----------------------------------------------|
 | `C-c h`    | Open the dashboard                           |
+| `C-c n f`  | Find or create an Org-roam note              |
+| `C-c n i`  | Insert a link to an Org-roam note            |
+| `C-c n l`  | Toggle the Org-roam backlinks buffer         |
 | `C-x g`    | Magit status                                 |
 | `C-c a`    | Aidermacs menu                               |
 | `C-c l`    | LSP command prefix (in LSP buffers)          |
 | `M-.`      | Peek definitions (in LSP buffers)            |
 | `M-?`      | Peek references (in LSP buffers)             |
+| `M-<tab>`  | Insert a snippet (YASnippet)                 |
 
 Press any prefix and wait to see the available keys in the `which-key` popup.
 
