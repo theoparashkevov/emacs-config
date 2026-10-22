@@ -69,6 +69,14 @@
 (add-hook 'dired-mode-hook #'my-tramp-auto-bookmark)
 
 ;; ----------------------------
+;; TERMINAL
+;; ----------------------------
+(use-package multi-term
+  :commands (multi-term multi-term-next multi-term-prev)
+  :config
+  (setq multi-term-program "/bin/bash"))
+
+;; ----------------------------
 ;; DASHBOARD (HOME PAGE)
 ;; ----------------------------
 (use-package all-the-icons

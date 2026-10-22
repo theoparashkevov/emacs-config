@@ -13,6 +13,8 @@ MELPA the first time Emacs starts.
 - **Projects** via Projectile, searching `~/projects`.
 - **Remote editing** over TRAMP (SSH by default). Each SSH host you open in
   Dired is bookmarked automatically as `ssh:<host>`.
+- **Terminals** via multi-term: `M-x multi-term` opens a new Bash terminal
+  buffer each time.
 - **Git** via Magit.
 - **IDE features** via `lsp-mode` + `lsp-ui` (peek, sideline, docs at point)
   for Python, JavaScript, TypeScript, C and C++.
