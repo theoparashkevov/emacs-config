@@ -98,6 +98,28 @@
 (global-set-key (kbd "C-c h") #'dashboard-open)
 
 ;; ----------------------------
+;; ORG / ORG-ROAM
+;; ----------------------------
+(use-package org
+  :ensure nil
+  :defer t
+  :config
+  (setq org-support-shift-select t))
+
+(use-package org-roam
+  :init
+  (setq org-roam-directory (file-truename "~/org-roam"))
+  :bind (("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n l" . org-roam-buffer-toggle))
+  :config
+  (make-directory org-roam-directory t)
+  (org-roam-db-autosync-mode 1))
+
+(use-package org-roam-ui
+  :after org-roam)
+
+;; ----------------------------
 ;; AIDER / AUTOMATION
 ;; ----------------------------
 (use-package aidermacs

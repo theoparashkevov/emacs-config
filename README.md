@@ -7,6 +7,9 @@ MELPA the first time Emacs starts.
 ## Features
 
 - **Dashboard** start page with recent files, projects, bookmarks and agenda.
+- **Notes** with Org-roam in `~/org-roam` (created on first use), with the
+  database kept in sync automatically and `M-x org-roam-ui-open` for a graph
+  view in the browser. In Org buffers, Shift+arrow keys select text.
 - **Projects** via Projectile, searching `~/projects`.
 - **Remote editing** over TRAMP (SSH by default). Each SSH host you open in
   Dired is bookmarked automatically as `ssh:<host>`.
@@ -59,6 +62,9 @@ The first start takes a minute while packages are downloaded and compiled.
 | Key        | Command                                      |
 |------------|----------------------------------------------|
 | `C-c h`    | Open the dashboard                           |
+| `C-c n f`  | Find or create an Org-roam note              |
+| `C-c n i`  | Insert a link to an Org-roam note            |
+| `C-c n l`  | Toggle the Org-roam backlinks buffer         |
 | `C-x g`    | Magit status                                 |
 | `C-c a`    | Aidermacs menu                               |
 | `C-c l`    | LSP command prefix (in LSP buffers)          |
