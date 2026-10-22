@@ -63,13 +63,20 @@ feature/<name>  ──PR──▶  development  ──PR──▶  main
 9. If a fix is urgent, it still goes `feature/<name>` → `development` → `main`,
    with two quick PRs. There is no path straight to `main`.
 
-### Legacy branches
+### Archived legacy config
 
-`codespace`, `home`, `ibm-server` and `surface-pro-2` are frozen per-machine
-snapshots of the old Org-babel (`org/init.org`) layout, which predates the
-single-`init.el` refactor on `main`. Do not merge them, rebase onto them, or
-branch from them. To bring something over, re-implement it in `init.el` on a
-new `feature/*` branch.
+The old per-machine branches (`codespace`, `home`, `ibm-server`,
+`surface-pro-2`) used the Org-babel (`org/init.org`) layout that predates the
+single-`init.el` refactor. They have been deleted. Their final state is kept
+as the tags `archive/codespace`, `archive/home`, `archive/ibm-server` and
+`archive/surface-pro-2`, viewable with for example
+`git show archive/home:org/init.org`.
+
+Their useful parts (YASnippet, Org-roam, multi-term) were ported into
+`init.el`. Do not branch from or merge the archive tags. To bring something
+else over, re-implement it in `init.el` on a new `feature/*` branch. Do not
+create new per-machine branches. Handle machine differences inside `init.el`
+instead.
 
 ## Commits and PRs
 
