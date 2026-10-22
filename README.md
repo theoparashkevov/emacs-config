@@ -17,6 +17,9 @@ MELPA the first time Emacs starts.
   picked up automatically.
 - **Completion and checking**: Company everywhere, Flycheck everywhere,
   `which-key` popups for key prefixes.
+- **Snippets** via YASnippet with the `yasnippet-snippets` collection, plus
+  your own snippets from `~/projects/yasnippet-snippets/snippets` if that
+  folder exists. `TAB` is left alone; use `M-<tab>` to insert a snippet.
 - **AI pair programming** via [aidermacs](https://github.com/MatthewZMD/aidermacs)
   (Aider, architect mode, default model `gpt-5-mini`, auto-commits on).
 - **Look**: `leuven-dark` theme, no tool bar, recent files and minibuffer
@@ -61,6 +64,7 @@ The first start takes a minute while packages are downloaded and compiled.
 | `C-c l`    | LSP command prefix (in LSP buffers)          |
 | `M-.`      | Peek definitions (in LSP buffers)            |
 | `M-?`      | Peek references (in LSP buffers)             |
+| `M-<tab>`  | Insert a snippet (YASnippet)                 |
 
 Press any prefix and wait to see the available keys in the `which-key` popup.
 

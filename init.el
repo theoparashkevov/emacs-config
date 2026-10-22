@@ -222,6 +222,22 @@
   (which-key-mode 1))
 
 ;; ----------------------------
+;; SNIPPETS
+;; ----------------------------
+(use-package yasnippet
+  :config
+  (let ((extra (expand-file-name "~/projects/yasnippet-snippets/snippets")))
+    (when (file-directory-p extra)
+      (add-to-list 'yas-snippet-dirs extra)))
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "M-<tab>") #'yas-insert-snippet)
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
+
+;; ----------------------------
 ;; THEME & COSMETICS
 ;; ----------------------------
 (load-theme 'leuven-dark t)
